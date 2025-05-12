@@ -168,7 +168,6 @@ public class AppTest extends testData {
 //		boolean actualResult = resultFound.getText().contains("stays") || resultFound.getText().contains("إقامة");
 //		Assert.assertEquals(actualResult, true);
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
 		String pageState = (String) js.executeScript("return document.readyState");
 		System.out.println("Document readyState is: " + pageState);
 		Assert.assertEquals(pageState, "complete");

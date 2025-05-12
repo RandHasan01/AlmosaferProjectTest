@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Random;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
@@ -37,6 +38,8 @@ public class testData {
 	int randomIndexArLocation = rand.nextInt(arLocations.length);
 
 	int randomIndexOption = rand.nextInt(2);
+
+	JavascriptExecutor js = (JavascriptExecutor) driver;
 
 	public void Setup() {
 		driver.get(URL);
