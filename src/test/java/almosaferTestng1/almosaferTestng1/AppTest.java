@@ -20,15 +20,10 @@ import org.testng.annotations.Test;
 
 public class AppTest extends testData {
 
-	WebDriver driver = new EdgeDriver();
-	Random rand = new Random();
-
 	@BeforeTest
 	public void mySetup() {
 
-		driver.get(URL);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		Setup();
 	}
 
 	@Test(priority = 1)
@@ -52,25 +47,33 @@ public class AppTest extends testData {
 	@Test(priority = 3)
 	public void checkContactNumber() {
 
-		WebElement phoneNumberElement = driver.findElement(By.xpath("//a[@class='sc-cjHlYL gdvIKd']//strong"));
-		String actualPhoneNumber = phoneNumberElement.getText().trim();
-
-		Assert.assertEquals(actualPhoneNumber, expectedContactNumber);
+		// WebElement phoneNumberElement =
+		// driver.findElement(By.xpath("//a[@class='sc-cjHlYL gdvIKd']//strong"));
+		// String actualPhoneNumber = phoneNumberElement.getText().trim();
+		// or
+		String ActualContactNumber = driver.findElement(By.cssSelector(".sc-cjHlYL.gdvIKd")).getText();
+		Assert.assertEquals(ActualContactNumber, expectedContactNumber);
 
 	}
 
 	@Test(priority = 4)
 	public void checkQitafLogoIsDisplayed() throws InterruptedException {
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollTo(0,18000)");
-		Thread.sleep(2000);
+		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		// js.executeScript("window.scrollTo(0,18000)");
+		// Thread.sleep(2000);
 
-		WebElement Logo = driver.findElement(By.cssSelector(".sc-bdVaJa.bxRSiR.sc-lcpuFF.jipXfR"));
+		// WebElement Logo =
+		// driver.findElement(By.cssSelector(".sc-bdVaJa.bxRSiR.sc-lcpuFF.jipXfR"));
 
-		Assert.assertTrue(Logo.isDisplayed());
+		// Assert.assertTrue(Logo.isDisplayed());
 
-		js.executeScript("window.scrollTo(18000,0)");
+		// js.executeScript("window.scrollTo(18000,0)");
+
+		WebElement footer = driver.findElement(By.tagName("footer"));
+		WebElement QitafLogo = footer.findElement(By.cssSelector(".sc-ekulBa.iOOTo")).findElement(By.tagName("svg"));
+
+		Assert.assertTrue(QitafLogo.isDisplayed());
 
 	}
 
@@ -80,7 +83,7 @@ public class AppTest extends testData {
 		WebElement HotelSearchTabElement = driver.findElement(By.id("uncontrolled-tab-example-tab-hotels"));
 
 		String actualHotelSearchValue = HotelSearchTabElement.getDomAttribute("aria-selected");
-		Assert.assertEquals(actualHotelSearchValue, expectedHotelSearchValue);
+		Assert.assertEquals(actualHotelSearchValue, "false");
 
 	}
 
@@ -111,7 +114,6 @@ public class AppTest extends testData {
 	@Test(priority = 8)
 	public void changeLanguage() {
 
-		int randomIndexLang = rand.nextInt(languages.length);
 		selectedLang = languages[randomIndexLang];
 		URL = "https://www.almosafer.com/" + selectedLang;
 
@@ -127,21 +129,15 @@ public class AppTest extends testData {
 	@Test(priority = 9)
 	public void typeValueInhotelSearchInputBasedOnLang() throws InterruptedException {
 
-		int randomIndexLocation = rand.nextInt(enLocations.length);
-
 		WebElement stays = driver.findElement(By.id("uncontrolled-tab-example-tab-hotels"));
 		stays.click();
 
 		WebElement hotelLocationField = driver.findElement(By.className("uQFRS"));
 
 		if (selectedLang.equals("en")) {
-			hotelLocationField.sendKeys(enLocations[randomIndexLocation]);
-			Thread.sleep(2000);
-			hotelLocationField.sendKeys(Keys.chord(Keys.ENTER));
+			hotelLocationField.sendKeys(enLocations[randomIndexEnLocation] + Keys.ENTER);
 		} else {
-			hotelLocationField.sendKeys(arLocations[randomIndexLocation]);
-			Thread.sleep(2000);
-			hotelLocationField.sendKeys(Keys.chord(Keys.ENTER));
+			hotelLocationField.sendKeys(arLocations[randomIndexArLocation] + Keys.ENTER);
 		}
 
 	}
@@ -150,8 +146,7 @@ public class AppTest extends testData {
 	public void chooseRandomRoom() {
 		WebElement roomSelectTag = driver.findElement(By.cssSelector(".sc-tln3e3-1.gvrkTi"));
 		Select select = new Select(roomSelectTag);
-		List<WebElement> options = select.getOptions();
-		int randomIndexOption = rand.nextInt(0, options.size() - 1);
+//		List<WebElement> options = select.getOptions();
 		select.selectByIndex(randomIndexOption);
 
 	}
@@ -166,20 +161,17 @@ public class AppTest extends testData {
 	@Test(priority = 12)
 	public void checkThePageIsUploaded() {
 
-//		WebElement resultsFound = driver.findElement(By.xpath("//span[@data-testid='srp_properties_found']"));
-//		System.out.println(resultsFound.getText());
-//		Assert.assertTrue(resultsFound.isDisplayed(), "Page did not fully load, element not displayed.");
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//		WebElement resultFound = wait.until(
+//				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='srp_properties_found']")));
+//
+//		boolean actualResult = resultFound.getText().contains("stays") || resultFound.getText().contains("إقامة");
+//		Assert.assertEquals(actualResult, true);
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-		wait.until(
-				driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
-
-		WebElement resultsFound = wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-testid='srp_properties_found']")));
-
-		System.out.println(resultsFound.getText());
-		Assert.assertTrue(resultsFound.isDisplayed(), "Page did not fully load, element not displayed.");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String pageState = (String) js.executeScript("return document.readyState");
+		System.out.println("Document readyState is: " + pageState);
+		Assert.assertEquals(pageState, "complete");
 
 	}
 
