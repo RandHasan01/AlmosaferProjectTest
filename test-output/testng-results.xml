@@ -2,64 +2,64 @@
 <testng-results ignored="0" total="12" passed="12" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-12T15:00:50 GMT+03:00" name="Default suite" finished-at="2025-05-12T15:01:17 GMT+03:00" duration-ms="27692">
+  <suite started-at="2025-05-19T14:08:19 GMT+03:00" name="Default suite" finished-at="2025-05-19T14:08:52 GMT+03:00" duration-ms="33669">
     <groups>
     </groups>
-    <test started-at="2025-05-12T15:00:50 GMT+03:00" name="Default test" finished-at="2025-05-12T15:01:17 GMT+03:00" duration-ms="27692">
+    <test started-at="2025-05-19T14:08:19 GMT+03:00" name="Default test" finished-at="2025-05-19T14:08:52 GMT+03:00" duration-ms="33669">
       <class name="almosaferTestng1.almosaferTestng1.AppTest">
-        <test-method is-config="true" signature="mySetup()[pri:0, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:00:50 GMT+03:00" name="mySetup" finished-at="2025-05-12T15:00:55 GMT+03:00" duration-ms="5819" status="PASS">
+        <test-method is-config="true" signature="mySetup()[pri:0, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:19 GMT+03:00" name="mySetup" finished-at="2025-05-19T14:08:24 GMT+03:00" duration-ms="4958" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- mySetup -->
-        <test-method signature="checkDefaultLangIsEn()[pri:1, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:00:55 GMT+03:00" name="checkDefaultLangIsEn" finished-at="2025-05-12T15:00:58 GMT+03:00" duration-ms="2194" status="PASS">
+        <test-method signature="checkDefaultLangIsEn()[pri:1, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:24 GMT+03:00" name="checkDefaultLangIsEn" finished-at="2025-05-19T14:08:27 GMT+03:00" duration-ms="2909" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDefaultLangIsEn -->
-        <test-method signature="checkDefaultCurrencyisSAR()[pri:2, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:00:58 GMT+03:00" name="checkDefaultCurrencyisSAR" finished-at="2025-05-12T15:00:58 GMT+03:00" duration-ms="58" status="PASS">
+        <test-method signature="checkDefaultCurrencyisSAR()[pri:2, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:27 GMT+03:00" name="checkDefaultCurrencyisSAR" finished-at="2025-05-19T14:08:27 GMT+03:00" duration-ms="55" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDefaultCurrencyisSAR -->
-        <test-method signature="checkContactNumber()[pri:3, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:00:58 GMT+03:00" name="checkContactNumber" finished-at="2025-05-12T15:00:58 GMT+03:00" duration-ms="42" status="PASS">
+        <test-method signature="checkContactNumber()[pri:3, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:27 GMT+03:00" name="checkContactNumber" finished-at="2025-05-19T14:08:27 GMT+03:00" duration-ms="36" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkContactNumber -->
-        <test-method signature="checkQitafLogoIsDisplayed()[pri:4, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:00:58 GMT+03:00" name="checkQitafLogoIsDisplayed" finished-at="2025-05-12T15:00:58 GMT+03:00" duration-ms="99" status="PASS">
+        <test-method signature="checkQitafLogoIsDisplayed()[pri:4, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:27 GMT+03:00" name="checkQitafLogoIsDisplayed" finished-at="2025-05-19T14:08:27 GMT+03:00" duration-ms="75" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkQitafLogoIsDisplayed -->
-        <test-method signature="checkHotelSearchNotSelectedByDefault()[pri:5, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:00:58 GMT+03:00" name="checkHotelSearchNotSelectedByDefault" finished-at="2025-05-12T15:00:58 GMT+03:00" duration-ms="31" status="PASS">
+        <test-method signature="checkHotelSearchNotSelectedByDefault()[pri:5, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:27 GMT+03:00" name="checkHotelSearchNotSelectedByDefault" finished-at="2025-05-19T14:08:27 GMT+03:00" duration-ms="47" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkHotelSearchNotSelectedByDefault -->
-        <test-method signature="checkFlightDepartureDefaultDate()[pri:6, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:00:58 GMT+03:00" name="checkFlightDepartureDefaultDate" finished-at="2025-05-12T15:00:58 GMT+03:00" duration-ms="37" status="PASS">
+        <test-method signature="checkFlightDepartureDefaultDate()[pri:6, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:27 GMT+03:00" name="checkFlightDepartureDefaultDate" finished-at="2025-05-19T14:08:27 GMT+03:00" duration-ms="41" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkFlightDepartureDefaultDate -->
-        <test-method signature="checkFlighReturnDefaultDate()[pri:7, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:00:58 GMT+03:00" name="checkFlighReturnDefaultDate" finished-at="2025-05-12T15:00:58 GMT+03:00" duration-ms="35" status="PASS">
+        <test-method signature="checkFlighReturnDefaultDate()[pri:7, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:27 GMT+03:00" name="checkFlighReturnDefaultDate" finished-at="2025-05-19T14:08:27 GMT+03:00" duration-ms="38" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkFlighReturnDefaultDate -->
-        <test-method signature="changeLanguage()[pri:8, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:00:58 GMT+03:00" name="changeLanguage" finished-at="2025-05-12T15:01:03 GMT+03:00" duration-ms="4552" status="PASS">
+        <test-method signature="changeLanguage()[pri:8, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:27 GMT+03:00" name="changeLanguage" finished-at="2025-05-19T14:08:29 GMT+03:00" duration-ms="1944" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- changeLanguage -->
-        <test-method signature="typeValueInhotelSearchInputBasedOnLang()[pri:9, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:01:03 GMT+03:00" name="typeValueInhotelSearchInputBasedOnLang" finished-at="2025-05-12T15:01:04 GMT+03:00" duration-ms="1033" status="PASS">
+        <test-method signature="fillHotelSearchByLang()[pri:9, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:29 GMT+03:00" name="fillHotelSearchByLang" finished-at="2025-05-19T14:08:34 GMT+03:00" duration-ms="4724" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- typeValueInhotelSearchInputBasedOnLang -->
-        <test-method signature="chooseRandomRoom()[pri:10, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:01:04 GMT+03:00" name="chooseRandomRoom" finished-at="2025-05-12T15:01:04 GMT+03:00" duration-ms="226" status="PASS">
+        </test-method> <!-- fillHotelSearchByLang -->
+        <test-method signature="chooseRandomRoom()[pri:10, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:34 GMT+03:00" name="chooseRandomRoom" finished-at="2025-05-19T14:08:34 GMT+03:00" duration-ms="320" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- chooseRandomRoom -->
-        <test-method signature="clickSearchButton()[pri:11, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:01:04 GMT+03:00" name="clickSearchButton" finished-at="2025-05-12T15:01:17 GMT+03:00" duration-ms="13018" status="PASS">
+        <test-method signature="clickSearchButton()[pri:11, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:34 GMT+03:00" name="clickSearchButton" finished-at="2025-05-19T14:08:52 GMT+03:00" duration-ms="18088" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickSearchButton -->
-        <test-method signature="checkThePageIsUploaded()[pri:12, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:01:17 GMT+03:00" name="checkThePageIsUploaded" finished-at="2025-05-12T15:01:17 GMT+03:00" duration-ms="15" status="PASS">
+        <test-method signature="checkThePageIsUploaded()[pri:12, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:52 GMT+03:00" name="checkThePageIsUploaded" finished-at="2025-05-19T14:08:52 GMT+03:00" duration-ms="14" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkThePageIsUploaded -->
-        <test-method is-config="true" signature="closeTheWebsite()[pri:0, instance:almosaferTestng1.almosaferTestng1.AppTest@7d42c224]" started-at="2025-05-12T15:01:17 GMT+03:00" name="closeTheWebsite" finished-at="2025-05-12T15:01:17 GMT+03:00" duration-ms="397" status="PASS">
+        <test-method is-config="true" signature="closeTheWebsite()[pri:0, instance:almosaferTestng1.almosaferTestng1.AppTest@640f11a1]" started-at="2025-05-19T14:08:52 GMT+03:00" name="closeTheWebsite" finished-at="2025-05-19T14:08:52 GMT+03:00" duration-ms="289" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeTheWebsite -->

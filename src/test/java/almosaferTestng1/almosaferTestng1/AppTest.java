@@ -29,8 +29,7 @@ public class AppTest extends testData {
 	@Test(priority = 1)
 	public void checkDefaultLangIsEn() {
 
-		WebElement Popup = driver
-				.findElement(By.cssSelector(".sc-jTzLTM.hQpNle.cta__button.cta__saudi.btn.btn-primary"));
+		WebElement Popup = driver.findElement(By.id("mui-2"));
 		Popup.click();
 
 		String actualLang = driver.findElement(By.tagName("html")).getDomAttribute("lang");
@@ -40,7 +39,8 @@ public class AppTest extends testData {
 
 	@Test(priority = 2)
 	public void checkDefaultCurrencyisSAR() {
-		String actualCurrency = driver.findElement(By.cssSelector(".sc-hUfwpO.kAhsZG")).getText();
+		String actualCurrency = driver.findElement(By.xpath("//div[@data-testid='Header__CurrencySelector']"))
+				.getText();
 		Assert.assertEquals(actualCurrency, expectedCurrency);
 	}
 
@@ -51,7 +51,8 @@ public class AppTest extends testData {
 		// driver.findElement(By.xpath("//a[@class='sc-cjHlYL gdvIKd']//strong"));
 		// String actualPhoneNumber = phoneNumberElement.getText().trim();
 		// or
-		String ActualContactNumber = driver.findElement(By.cssSelector(".sc-cjHlYL.gdvIKd")).getText();
+		String ActualContactNumber = driver
+				.findElement(By.cssSelector(".__ds__comp.undefined.MuiBox-root.alm-desktop-h0bow9")).getText();
 		Assert.assertEquals(ActualContactNumber, expectedContactNumber);
 
 	}
@@ -71,7 +72,7 @@ public class AppTest extends testData {
 		// js.executeScript("window.scrollTo(18000,0)");
 
 		WebElement footer = driver.findElement(By.tagName("footer"));
-		WebElement QitafLogo = footer.findElement(By.cssSelector(".sc-ekulBa.iOOTo")).findElement(By.tagName("svg"));
+		WebElement QitafLogo = footer.findElement(By.xpath("//img[@alt='qitaf']"));
 
 		Assert.assertTrue(QitafLogo.isDisplayed());
 
@@ -80,7 +81,7 @@ public class AppTest extends testData {
 	@Test(priority = 5)
 	public void checkHotelSearchNotSelectedByDefault() {
 
-		WebElement HotelSearchTabElement = driver.findElement(By.id("uncontrolled-tab-example-tab-hotels"));
+		WebElement HotelSearchTabElement = driver.findElement(By.id("tab-hotels"));
 
 		String actualHotelSearchValue = HotelSearchTabElement.getDomAttribute("aria-selected");
 		Assert.assertEquals(actualHotelSearchValue, "false");
@@ -90,11 +91,9 @@ public class AppTest extends testData {
 	@Test(priority = 6)
 	public void checkFlightDepartureDefaultDate() {
 
-		String actualFlightDepartureDay = driver
-				.findElement(By.xpath(
-						"//div[@data-testid='FlightSearchBox__FromDateButton']//span[@class='sc-dXfzlN iPVuSG']"))
-				.getText().trim();
-
+		String actualFlightDepartureDay = driver.findElement(By.id("testIdPickerPrefix__DatePicker__DepartureDate"))
+				.getDomAttribute("value");
+		System.out.println("actualFlightDepartureDay: " + actualFlightDepartureDay);
 		Assert.assertEquals(actualFlightDepartureDay, expectedFlightDepartureDay);
 
 	}
@@ -102,11 +101,9 @@ public class AppTest extends testData {
 	@Test(priority = 7)
 	public void checkFlighReturnDefaultDate() {
 
-		String actualFlightReturnDay = driver
-				.findElement(By
-						.xpath("//div[@data-testid='FlightSearchBox__ToDateButton']//span[@class='sc-dXfzlN iPVuSG']"))
-				.getText();
-
+		String actualFlightReturnDay = driver.findElement(By.id("testIdPickerPrefix__DatePicker__ArrivalDate"))
+				.getDomAttribute("value");
+		System.out.println("actualFlightReturnDay: " + actualFlightReturnDay);
 		Assert.assertEquals(actualFlightReturnDay, expectedFlightReturnDay);
 
 	}
@@ -127,34 +124,43 @@ public class AppTest extends testData {
 	}
 
 	@Test(priority = 9)
-	public void typeValueInhotelSearchInputBasedOnLang() throws InterruptedException {
+	public void fillHotelSearchByLang() throws InterruptedException {
 
-		WebElement stays = driver.findElement(By.id("uncontrolled-tab-example-tab-hotels"));
+		WebElement stays = driver.findElement(By.id("tab-hotels"));
 		stays.click();
 
-		WebElement hotelLocationField = driver.findElement(By.className("uQFRS"));
+		WebElement hotelLocationField = driver.findElement(By.id("DesktopSearchWidget_Destination_InputField_Test_Id"));
 
 		if (selectedLang.equals("en")) {
-			hotelLocationField.sendKeys(enLocations[randomIndexEnLocation] + Keys.ENTER);
+			hotelLocationField.sendKeys(enLocations[randomIndexEnLocation]);
+			Thread.sleep(2000);
+			hotelLocationField.sendKeys(Keys.ENTER);
 		} else {
-			hotelLocationField.sendKeys(arLocations[randomIndexArLocation] + Keys.ENTER);
+			hotelLocationField.sendKeys(arLocations[randomIndexArLocation]);
+			Thread.sleep(2000);
+			hotelLocationField.sendKeys(Keys.ENTER);
 		}
 
 	}
 
 	@Test(priority = 10)
-	public void chooseRandomRoom() {
-		WebElement roomSelectTag = driver.findElement(By.cssSelector(".sc-tln3e3-1.gvrkTi"));
-		Select select = new Select(roomSelectTag);
-//		List<WebElement> options = select.getOptions();
-		select.selectByIndex(randomIndexOption);
+	public void chooseRandomRoom() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		WebElement chooseRoomField = driver.findElement(By.id("mui-3"));
+		chooseRoomField.click();
+		List<WebElement> roomOptions = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+				By.cssSelector(".MuiTypography-root.MuiTypography-body1.__ds__comp.undefined.alm-desktop-1uls8co")));
+		int randomIndexOption = rand.nextInt(roomOptions.size());
+		roomOptions.get(randomIndexOption).click();
 
 	}
 
 	@Test(priority = 11)
 	public void clickSearchButton() {
 
-		WebElement searchButton = driver.findElement(By.xpath("//button[@data-testid='HotelSearchBox__SearchButton']"));
+		WebElement searchButton = driver.findElement(By.id("mui-4"));
 		searchButton.click();
 	}
 

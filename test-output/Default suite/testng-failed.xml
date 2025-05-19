@@ -5,6 +5,8 @@
     <classes>
       <class name="almosaferTestng1.almosaferTestng1.AppTest">
         <methods>
+          <include name="clickSearchButton"/>
+          <include name="chooseRandomRoom"/>
           <include name="mySetup"/>
           <include name="closeTheWebsite"/>
           <include name="checkThePageIsUploaded"/>

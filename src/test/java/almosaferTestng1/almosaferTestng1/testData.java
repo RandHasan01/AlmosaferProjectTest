@@ -2,6 +2,8 @@ package almosaferTestng1.almosaferTestng1;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Random;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -25,10 +27,12 @@ public class testData {
 
 	LocalDate today = LocalDate.now();
 	LocalDate todayPlusOne = today.plusDays(1);
-	String expectedFlightDepartureDay = String.format("%02d", todayPlusOne.getDayOfMonth());
+
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEE, dd MMM", Locale.ENGLISH);
+	String expectedFlightDepartureDay = todayPlusOne.format(formatter);
 
 	LocalDate todayPlusTwo = today.plusDays(2);
-	String expectedFlightReturnDay = String.format("%02d", todayPlusTwo.getDayOfMonth());
+	String expectedFlightReturnDay = todayPlusTwo.format(formatter);
 
 	int randomIndexLang = rand.nextInt(languages.length);
 
@@ -37,7 +41,6 @@ public class testData {
 	int randomIndexEnLocation = rand.nextInt(enLocations.length);
 	int randomIndexArLocation = rand.nextInt(arLocations.length);
 
-	int randomIndexOption = rand.nextInt(2);
 
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 
